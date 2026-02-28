@@ -13,30 +13,32 @@ class Student
     int age;
 public:
     Student(std::string n, int a)
-        : name (n), age (a){}
+        : name (n), age (a){std ::cout << "creat constructor "<< "age :"<<a<<"name :"<< n<< std::endl;};
 
  Student()
-    : name{"alex"}, age{12}{}
+    : name{"alex"}, age{12}{std ::cout << "creat one more constructor "<< "name:"<< name <<" age:"<< age<<std::endl;};
 
-    ~Student() {};
+    ~Student() {std ::cout << "destructor"<<std::endl;};
 
 };
 
 class Teacher
 {
     std :: string name;
-    int age;
+    int stash;
     public:
-    Teacher();
-    ~Teacher();
+    Teacher(std::string na, int s)
+        : name{na}, stash{s}{std ::cout << "creat constructor "<<"name :"<< na<<"stash:"<<stash<<std::endl;};
+    ~Teacher(){std ::cout << "destructor"<<std::endl;};
 };
 
 class Curse
 {
     int namber;
     public:
-    Curse();
-    ~Curse();
+    Curse(int n)
+        : namber(n) {std ::cout << "creat constructor "<<"namber:"<<n<<std::endl;};
+    ~Curse(){std ::cout << "destructor"<<std::endl;};
 };
 
 
