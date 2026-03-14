@@ -1,35 +1,29 @@
 
 #include "main.h"
-#include "corsu.h"
+#include "Course.h"
 #include "teacher.h"
+#include "human.h"
 
-int Student::count = 0;
+
 int main ()
 {
-    int age;
-    std :: string name;
-Student student( "sasha", 17);;
-    Student student1;
 
-Teacher teacher( "alex2 ", 15);
-Curse curse (1);
+    Student s1("Sasha",17,"Male","ips","Student",100,"143",2008,"OOP",5);
 
-    Teacher teacher1 = std::move(teacher);
-    Curse curse2 = curse ;
-    Curse nam("pavel");
+    s1.print();
+    std::cout <<"coppy constructor :"<<std::endl;
+    Student s2 = s1;
 
-const Student student2 ("piter", 8);
-   Student::showcount();
+    s2.print();
+    std::cout <<"move constructor :"<<std::endl;
+    Student s3 = std::move(s1);
 
-    Student student3= student + student1;
-    std :: cout <<student3 << std::endl;
-    -student3;
-    std :: cout << student3 << std::endl;
+    s3.print();
+    std::cout <<"operator= :"<<std::endl;
+    Student s4(" ", 0," "," "," ",0," ",0, " ", 0);
+    s4 = s2;
 
-    Student student4;
-    std ::cout <<"vvedit studenta :" << std::endl;
-    std::cin >> student4;
+    s4.print();
 
-    std::cout << student4 << std::endl;
     return 0;
 }

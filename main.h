@@ -6,48 +6,71 @@
 #define UNTITLED_MAIN_H
 #include <iostream>
 #include <string>
+#include "UniversityPerson.h"
+#include "Course.h"
 
-class Student
+class Student : public UniversityPerson
 {
-    std::string name;
-    int age;
+    protected:
+
+   double averageGrade;
+    std::string grop;
+    double scholarship;
+    Course course;
+
 public:
+
     static int count;
-    Student(std::string n, int a)
-        : name (n), age (a){std ::cout << "creat constructor "<< "age :"<<a<<"name :"<< n<< std::endl;  count ++;};
 
- Student()
-    : name{"alex"}, age{12}{std ::cout << "creat one more constructor "<< "name:"<< name <<" age:"<< age<<std::endl; count ++;};
+    Student(std::string n, int a, std::string g,std::string f, std::string p,double grade,std:: string gr, double s,std::string courseName, int credits)
+        : UniversityPerson(n, g,g,a,p),course(courseName,credits), grop (gr), averageGrade (grade) , scholarship(s) {};
 
-    static void showcount()
+    Student(const Student& other)
+        : UniversityPerson(other),course(other.course)
     {
-        std::cout << "teachers: " << count << std::endl;
-    }
-    void operator-()
-    {
-        age = -age;
-    }
-    Student operator+(const Student& s)
-    {
-        Student temp;
-        temp.age = age + s.age;
-        temp.name = name + "_" + s.name;
-        return temp;
+        averageGrade = other.averageGrade;
+        grop = other.grop;
+        scholarship = other.scholarship;
+
     }
 
-    friend std::ostream& operator<<(std::ostream& out, const Student& s)
+    Student(Student&& other) noexcept
+    : UniversityPerson(std::move(other)),
+      course(std::move(other.course))
     {
-        out << "name: " << s.name << " age: " << s.age;
-        return out;
+        averageGrade = other.averageGrade;
+        grop = std::move(other.grop);
+        scholarship = other.scholarship;
+
     }
 
-    friend std::istream& operator>>(std::istream& in, Student& s)
+    Student& operator=(const Student& other)
     {
-        in >> s.name >> s.age;
-        return in;
+        if(this != &other)
+        {
+            UniversityPerson::operator=(other);
+
+            averageGrade = other.averageGrade;
+            grop = other.grop;
+            scholarship = other.scholarship;
+            course = other.course;
+        }
+
+        return *this;
     }
 
-    ~Student() {std ::cout << "destructor"<<std::endl;};
+
+    void print() override
+    {
+        UniversityPerson::print();
+       std:: cout << "Average grade: " << averageGrade << std:: endl;
+        std:: cout << "Group: " << grop << std:: endl;
+        std:: cout << "Scholarship: " << scholarship <<  std::endl;
+
+        course.print();
+    }
+
+   virtual ~Student() {std ::cout << "destructor"<<std::endl;};
 
 
 };
