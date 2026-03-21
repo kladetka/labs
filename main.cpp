@@ -3,7 +3,8 @@
 #include "Course.h"
 #include "teacher.h"
 #include "human.h"
-
+#include <iostream>
+#include "UniversityPerson.h"
 
 int main ()
 {
@@ -20,8 +21,9 @@ int main ()
 
     s3.print();
     std::cout <<"operator= :"<<std::endl;
-    Student s4(" ", 0," "," "," ",0," ",0, " ", 0);
+   Student s4(" ", 0," "," "," ",0," ",0, " ", 0);
     s4 = s2;
+
 
     s4.print();
 
