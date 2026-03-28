@@ -8,8 +8,9 @@
 #include <string>
 #include "UniversityPerson.h"
 #include "Course.h"
+#include "iperson.h"
 
-class Student final : public UniversityPerson
+class Student final: public UniversityPerson , public Iperson
 {
     protected:
 
@@ -72,6 +73,13 @@ public:
     void role() override
     {
         std::cout << "i am a student" << std::endl;
+    }
+
+    void action() override
+    {
+        std::cout << name << " is studying at university" << std::endl;
+        std::cout << "Course: ";
+        course.print();
     }
 
     void print() override

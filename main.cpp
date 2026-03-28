@@ -19,7 +19,7 @@ int main ()
     h2->print();
     h2->work();
 
-    Student s5("Ivan",19,"Male","math","Student",85,"145",2005,"Physics",3);
+    Student s5("Ivan",19,"Male","math","Student",85,"145",2007,"Physics",3);
     s5.show(s5);
 
     s1.print();

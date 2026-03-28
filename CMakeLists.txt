@@ -9,4 +9,5 @@ add_executable(untitled
         teacher.h
         main.h
         human.h
-        UniversityPerson.h)
+        UniversityPerson.h
+        iperson.h)
