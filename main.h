@@ -9,7 +9,7 @@
 #include "UniversityPerson.h"
 #include "Course.h"
 
-class Student : public UniversityPerson
+class Student final : public UniversityPerson
 {
     protected:
 
@@ -59,6 +59,20 @@ public:
         return *this;
     }
 
+    void info()
+    {
+        std:: cout <<" student info "<< std::endl;
+    }
+
+    void work() override
+    {
+        std:: cout <<"student studies"<<std::endl;
+    }
+
+    void role() override
+    {
+        std::cout << "i am a student" << std::endl;
+    }
 
     void print() override
     {

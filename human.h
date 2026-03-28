@@ -17,6 +17,24 @@ class Human
     public:
     Human(std::string n, int a,std::string g) : name(n), age(a),gender(g) {};
     virtual ~Human() {};
+
+    virtual void role() = 0;
+
+    void info()
+    {
+        std::cout<<" human info " <<std::endl;
+    }
+   virtual void show(Human& h)
+    {
+        h.print();
+        h.work();
+    }
+
+   virtual void work()
+    {
+        std::cout<<" human work " <<std::endl;
+    }
+
     virtual void print()
     {
        std:: cout << "Name: " << name << std::endl;
