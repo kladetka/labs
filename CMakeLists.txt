@@ -10,4 +10,6 @@ add_executable(untitled
         main.h
         human.h
         UniversityPerson.h
-        iperson.h)
+        iperson.h
+        FIleManeger.h
+        Menu.h)
